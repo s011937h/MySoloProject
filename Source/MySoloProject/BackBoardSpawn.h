@@ -26,7 +26,7 @@ protected:
 		FVector SpawnOffset;
 	UPROPERTY(EditAnywhere, Category = "Spawning")
 		TSubclassOf<AActor> ObjectToSpawn;
-	UPROPERTY(BlueprintReadWrite, Category = "Spawning")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
 		bool SpawnNow;
 	bool Spawned;
 

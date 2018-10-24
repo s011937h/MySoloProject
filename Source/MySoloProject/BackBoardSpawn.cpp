@@ -11,7 +11,7 @@ ABackBoardSpawn::ABackBoardSpawn()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	BackBoardSpawnMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Backbaord Spawner Mesh"));
+	BackBoardSpawnMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Backboard Spawn Mesh"));
 	BackBoardSpawnMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
 
@@ -23,7 +23,6 @@ void ABackBoardSpawn::BeginPlay()
 	if (SpawnNow == true)
 	{
 		Spawn();
-		Spawned = true;
 	}
 }
 
@@ -31,32 +30,33 @@ void ABackBoardSpawn::BeginPlay()
 void ABackBoardSpawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 	if (SpawnNow && !Spawned)
 	{
 		Spawn();
 	}
-	else if (SpawnNow && Spawned)
+	/*else if (SpawnNow && Spawned)
 	{
-		Destroy();
+		//Destroy();
 		Super::Tick(DeltaTime);
 		Spawn();
-	}
+	}*/
 	else if (!SpawnNow && Spawned)
 	{
-		Destroy();
+		//Destroy();
 	}
 }
 
 void ABackBoardSpawn::Spawn()
 {
+	Spawned = true;
 	FActorSpawnParameters params;		
 	params.Owner = this;
 	params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	AActor* newSpawn = GetWorld()->SpawnActor<AActor>(ObjectToSpawn, this->GetActorLocation() + SpawnOffset, this->GetActorRotation(), params);
+	OnSpawnEvent();
 }
 
 void ABackBoardSpawn::Despawn()
 {
-		Destroy();
+	
 }

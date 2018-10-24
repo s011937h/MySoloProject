@@ -5,8 +5,7 @@
 #include "MySoloProjectCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 
-AMySoloProjectGameMode::AMySoloProjectGameMode()
-	: Super()
+AMySoloProjectGameMode::AMySoloProjectGameMode(): Super()
 {
 	// set default pawn class to our Blueprinted character
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnClassFinder(TEXT("/Game/FirstPersonCPP/Blueprints/FirstPersonCharacter"));
@@ -15,3 +14,4 @@ AMySoloProjectGameMode::AMySoloProjectGameMode()
 	// use our custom HUD class
 	HUDClass = AMySoloProjectHUD::StaticClass();
 }
+
