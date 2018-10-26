@@ -139,7 +139,7 @@ void AMySoloProjectCharacter::SetupPlayerInputComponent(class UInputComponent* P
 }
 
 void AMySoloProjectCharacter::OnFire()
-{
+{/*
 	// try and fire a projectile
 	if (ProjectileClass != NULL)
 	{
@@ -150,7 +150,7 @@ void AMySoloProjectCharacter::OnFire()
 			{
 				const FRotator SpawnRotation = VR_MuzzleLocation->GetComponentRotation();
 				const FVector SpawnLocation = VR_MuzzleLocation->GetComponentLocation();
-				World->SpawnActor<AMySoloProjectProjectile>(ProjectileClass, SpawnLocation, SpawnRotation);
+				//World->SpawnActor<AMySoloProjectProjectile>(ProjectileClass, SpawnLocation, SpawnRotation);
 			}
 			else
 			{
@@ -163,7 +163,7 @@ void AMySoloProjectCharacter::OnFire()
 				ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 
 				// spawn the projectile at the muzzle
-				World->SpawnActor<AMySoloProjectProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+				//World->SpawnActor<AMySoloProjectProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 			}
 		}
 	}
@@ -171,7 +171,7 @@ void AMySoloProjectCharacter::OnFire()
 	// try and play the sound if specified
 	if (FireSound != NULL)
 	{
-		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+		//UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
 	}
 
 	// try and play a firing animation if specified
@@ -184,7 +184,7 @@ void AMySoloProjectCharacter::OnFire()
 			AnimInstance->Montage_Play(FireAnimation, 1.f);
 		}
 	}
-}
+}*/
 
 void AMySoloProjectCharacter::OnResetVR()
 {
@@ -199,7 +199,7 @@ void AMySoloProjectCharacter::BeginTouch(const ETouchIndex::Type FingerIndex, co
 	}
 	if ((FingerIndex == TouchItem.FingerIndex) && (TouchItem.bMoved == false))
 	{
-		OnFire();
+		//OnFire();
 	}
 	TouchItem.bIsPressed = true;
 	TouchItem.FingerIndex = FingerIndex;

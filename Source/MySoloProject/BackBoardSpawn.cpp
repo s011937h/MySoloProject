@@ -19,31 +19,14 @@ ABackBoardSpawn::ABackBoardSpawn()
 void ABackBoardSpawn::BeginPlay()
 {
 	Super::BeginPlay();
-	Spawned = false;
-	if (SpawnNow == true)
-	{
-		Spawn();
-	}
+	
 }
 
 	// Called every frame
 void ABackBoardSpawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (SpawnNow && !Spawned)
-	{
-		Spawn();
-	}
-	/*else if (SpawnNow && Spawned)
-	{
-		//Destroy();
-		Super::Tick(DeltaTime);
-		Spawn();
-	}*/
-	else if (!SpawnNow && Spawned)
-	{
-		//Destroy();
-	}
+
 }
 
 void ABackBoardSpawn::Spawn()
